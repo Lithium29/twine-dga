@@ -708,10 +708,8 @@ a:hover {
 }
 #ui-dialog-titlebar {
   /*background-color: #1b1408; 
-
   */
   background-color:transparent;
-
   background: radial-gradient(circle, red, yellow, green);
   background-image: url("img/buttonh1.png");
   background-repeat: no-repeat; 
@@ -768,7 +766,12 @@ a:hover {
 .dm #ui-dialog-close:hover {
   color: var(--dm-accent);
 }
+
+#ui-dialog-body hr {
+  display: none !important;
+}
 #ui-dialog-body {
+
   border: 1px solid var(--menu);
   background-image: url("img/bg inv5.png");
   background-color:var(--bg2);
@@ -790,8 +793,6 @@ a:hover {
   height: auto;
   font-family: var(--sansserif);
   font-size: 90%;
-
-
   /* sieht bei einem item ohne column besser aus, vll bei mehreren mit column besser (?)
   flex-direction: column;
   */
