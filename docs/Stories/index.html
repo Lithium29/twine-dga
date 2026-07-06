@@ -268,7 +268,7 @@ body {
   -ms-overflow-style: none !important; /* IE/Edge */
   scrollbar-width: none !important;    /* Firefox */
 }
-}
+
 .dm #passages {
   background-color: var(--dm-bg2);
   border: 2em solid var(--dm-bg2);
@@ -695,12 +695,8 @@ a:hover {
   overflow: hidden;
 }
 #ui-dialog {
-  /*  padding: .5em;*/
-  
-  /*
+  padding: 1em;
   background:transparent;
-  */
-
   overflow-y: auto;
   top: 10% !important;   
   /*
@@ -749,8 +745,6 @@ a:hover {
   width: 100%;
   padding: 0;
   color: var(--text);
-  
-
 }
 #ui-dialog-close {
   background-color: transparent;
@@ -777,7 +771,6 @@ a:hover {
   border: 1px solid var(--menu);
   background-image: url("img/bg inv5.png");
   background-color:var(--bg2);
-
   background-color: rgba(0, 0, 0, 0.6); /* overlay tint */
   background-blend-mode: darken; /* or multiply / overlay */
   /*
@@ -786,21 +779,23 @@ a:hover {
   /*
   background-color: rgba(0, 0, 0, 0.6); 
   /*hintergrund des bilds*/
-  
   background-size: cover;       
   background-repeat: no-repeat; 
   background-position: center;  
   height: auto;
   max-width: 60vw;
+  position: relative;
   /*background-color: var(--bg2);*/
   height: auto;
-  width: 100%;
   font-family: var(--sansserif);
   font-size: 90%;
   display: flex;
+
+  /* sieht bei einem item ohne column besser aus, vll bei mehreren mit column besser (?)
   flex-direction: column;
+  */
   align-items: center;    /* center horizontally */
-  justify-content: flex-start; /* optional: start from top */
+  
   /*
   border: 1px solid var(--menu);
   */
@@ -946,6 +941,10 @@ a:hover {
   #up {
 	bottom: 50%;
   }
+  #ui-dialog-body {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
   #footer-menu li {
 	padding: 5%;
   }
@@ -1060,7 +1059,8 @@ a:hover {
 	color: var(--dm-text);
   }
   #function-menu {
-	display: fixed;
+	display: flex;
+    position: fixed;
     transform: scale(1.5);
   	transform-origin: left top;
   }
@@ -1090,18 +1090,18 @@ a:hover {
   }
   /*mobile dialog boxes*/
   #ui-overlay {
-	background-color: var(--menu);
+	background-color: var(--bg2);
 	opacity: 1 !important;
   }
   .dm #ui-overlay {
 	background-color: var(--dm-menu);
   }
   #ui-dialog {
-	min-width: 100vw;
+	width: 90%; 
 	position: absolute;
 	top: 2em !important;
-	left: 0 !important;
-	padding: 1px;
+    box-sizing: border-box;
+	padding: 10px;
   }
   #ui-dialog-close {
 	font-size: 1.2em;
@@ -1109,7 +1109,11 @@ a:hover {
 	right: 10%;
   }
    #ui-dialog-body {
-	background-color: var(--menu);
+	min-width: 0 !important;
+    max-width: 95vw !important;
+    box-sizing: border-box !important;
+	background-color: var(--bg2);
+    background-blend-mode: darken; /* or multiply / overlay */
 	font-size: 80%;
 	padding: 30px;
   }
