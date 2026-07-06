@@ -136,13 +136,13 @@ body {
   background-color: var(--bg);
   color: var(--text);
   height: 100vh;
-  width: 90vw;
+  width: 100%;
   max-width: 1400px;
   display: flex;
   align-items: center;
- /*
+ 
   overflow: hidden;
-  */
+  
   margin: 0 auto;
   }
 
@@ -280,15 +280,24 @@ body {
   padding: 0 1.2em .5em 2em;
   outline: 1.8em solid var(--bg2);
   border: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+  /*
   overflow-y: scroll !important;      /* ensure scrolling is allowed */
+  /*
   -ms-overflow-style: none !important; /* IE/Edge */
+  */
+  /*
   scrollbar-width: none !important;    /* Firefox */
+  */
 }
 
 /*scrollbar*/ 
+/*
 #passages::-webkit-scrollbar {
   display: none !important;
 }
+/*
 /*headings*/
 #story h1 {
   font-family: var(--special);
@@ -775,7 +784,7 @@ a:hover {
   background-image: url("img/bg inv5.png");
   */
   /*
-  background-color: rgba(0, 0, 0, 0.6);*/ 
+  background-color: rgba(0, 0, 0, 0.6); 
   /*hintergrund des bilds*/
   
   background-size: cover;       
@@ -926,9 +935,10 @@ a:hover {
 	top: 12%;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   #passages {
-	max-height: 70%;
+	max-height: 70%; 
+    max-width: 70%;
   }
   #back {
 	left: 16%;
@@ -1050,7 +1060,9 @@ a:hover {
 	color: var(--dm-text);
   }
   #function-menu {
-	display: none;
+	display: fixed;
+    transform: scale(1.5);
+  	transform-origin: left top;
   }
   #footer-menu {
 	display: none;
