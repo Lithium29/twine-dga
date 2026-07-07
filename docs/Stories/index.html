@@ -140,14 +140,10 @@ body {
   max-width: 1400px;
   display: flex;
   align-items: center;
- 
   overflow: hidden;
-  
   margin: 0 auto;
   }
-
 .dm body {
-
 }
 
 /*INVENTORY*/ 
@@ -160,7 +156,6 @@ body {
   overflow-y: auto;        /* vertical scrolling */
   padding-right: 5px; 
 }
-
 .inventory-item {
   position: relative;
   width: 60px;
@@ -170,14 +165,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .inventory-item img {
   width: 100%;
   height: 100%;
   display: block; /* removes whitespace bug */
   object-fit: contain;   
 }
-
 .count-badge {
   position: absolute;
   bottom: 2px;
@@ -191,7 +184,6 @@ body {
   line-height: 1;
   pointer-events: none; /* clicks go through to the icon */
 }
-
 .inventory-popup-content {
     display: flex;
     flex-direction: column;
@@ -203,7 +195,6 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
-
 .inventory-popup-content img {
     margin: 10px 0;
     max-width: 80%;
@@ -213,7 +204,6 @@ body {
     margin: 5px 0;
 }
 .inventory-popup-content a {
-
 }
 /*INVENTORY END*/ 
 
@@ -988,12 +978,12 @@ a:hover {
 @media screen and (max-width: 420px) {
   body {
 	background-color: var(--bg2);
+    background-position:left !important;
   }
   .dm body {
 	background-color: var(--dm-bg2);
   }
   #story {
-	background-color: var(--bg2);
 	font-size: 70%;
   }
   .dm #story {
@@ -1947,34 +1937,20 @@ Willst Du umdrehen?
 [[Du gönnst Dir einige Bananen-&gt;nordenBananen]]
 [[Du gehst weiter-&gt;norden02]]
 
-</tw-passagedata><tw-passagedata pid="13" name="kannibalen" tags="item Bild TODO" position="3450,5625" size="100,100">
-/*
-TODO LOGIK NOCH FALSCH
+</tw-passagedata><tw-passagedata pid="13" name="kannibalen" tags="item Bild TODO" position="3450,5625" size="100,100">/*TODO LOGIK NOCH FALSCH
 &lt;&lt;set $kannibalenBesucht=true&gt;&gt;
 &lt;&lt;set $krakenKatastrophe=true&gt;&gt;
 &lt;&lt;set $ferenko=true&gt;&gt;
 &lt;&lt;set $ferenkoTrennung1=true&gt;&gt;
-*/
-&lt;&lt;if ($kannibalenBesucht==true &amp;&amp; (!($ferenkoTrennung1==true||$ferenkoTrennung2==true)))&gt;&gt;
-                 /*wir waren da befreiung gefailt */
-Du folgst dem Pfad nach Süden. Ein kleines Dorf liegt friedlich vor dir. Doch Du weißt, dass der Schein trügt. An diesem Ort hausen Kannibalen, die - nun ja - kannibalistisch veranlagt sind, und nicht nur sich gegenseitig, sondern auch gerne unschuldig daher wandernde Menschlein verspeisen. Nimmst Du auf jeden Fall an. Du weißt, dass in ihrem Vorratsraum wahrscheinlich noch wehrlose Opfer auf ihr Ende warten, und dass ein mutiger Held sie möglicherweise retten könnte.  
-
-Siehst Du hier einen mutigen Helden, der genau das versuchen wird? 
+*/&lt;&lt;if ($kannibalenBesucht==true &amp;&amp; (!($ferenkoTrennung1==true||$ferenkoTrennung2==true)))&gt;&gt;
+Du folgst dem Pfad nach Süden. Ein kleines Dorf liegt friedlich vor dir. Doch Du weißt, dass der Schein trügt. An diesem Ort hausen Kannibalen, die - nun ja - kannibalistisch veranlagt sind, und nicht nur sich gegenseitig, sondern auch gerne unschuldig daher wandernde Menschlein verspeisen. Nimmst Du auf jeden Fall an. Du weißt, dass in ihrem Vorratsraum wahrscheinlich noch wehrlose Opfer auf ihr Ende warten, und dass ein mutiger Held sie möglicherweise retten könnte. &lt;br&gt; &lt;br&gt;Siehst Du hier einen mutigen Helden, der genau das versuchen wird? 
 [[Es ist Deine menschliche Pflicht, die Gefangenen der Kannibalen zu befreien, egal welcher Spezies sie angehören! Außerdem hattest du, wenn Du Dich recht erinnerst, einen Menschen in diesem Dorf gesehen. Vielleicht wurde er ja noch nicht - nunja. -&gt;befreien]] 
 Oder gehst Du lieber wieder zurück in Richtung [[Norden -&gt;norden]]
 Oder nimmst den abzweigenden Weg nach Osten zurück [[Ums Dorf herum? -&gt;umweg]]  
 Andere Wege siehst Du momentan leider nicht...   
-&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if (($kannibalenBesucht==true &amp;&amp; $krakenKatastrophe==true) &amp;&amp; ($ferenko==true)) &gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;if (($kannibalenBesucht==true &amp;&amp; $krakenKatastrophe==true) &amp;&amp; ($ferenko==true)) &gt;&gt;
 /*wir waren da (ob befreit oder nicht) und haben den Kraken aufs Dorf losgelassen */ /*erst befreit, dann Kraken  */
-Du folgst dem Pfad nach Süden. Doch vor Deinen Augen tut sich Unglaubliches auf. Zuvor waren Dir nur die aufgespießten Totenschädel aufgefallen, doch der Anblick, den der Rest des Dorfes nun bietet, unterscheidet sich fundamental von dem Anblick, an den Du Dich erinnerst. 
-
-Das Dorf liegt in Schutt und Asche. Nur noch Trümmer sind von den Behausungen der Kannibalen übrig. Etwas oder jemand - und Du hast eine gute Ahnung, wer - hat sich Deinen Rat zu Herzen genommen, und sich einmal so richtig sattgegessen. Ach, Alveron... seufzt du. Langsam gehst Du ins Dorf. Alle Häuser sind ohne Ausnahme zerstört. Es sieht aus, als hätte Alveron daran sogar Spaß gehabt. 
-
-Von den Kannibalen siehst Du rein gar nichts mehr, aber Du kannst Dir denken, was mit ihnen passiert ist. Einige ihrer Habseligkeiten findest Du nach einer kurzen Suche.  
-Du sammelst an verschiedenen Orten fünf Goldmünzen zusammen. 
-
+Du folgst dem Pfad nach Süden. Doch vor Deinen Augen tut sich Unglaubliches auf. Zuvor waren Dir nur die aufgespießten Totenschädel aufgefallen, doch der Anblick, den der Rest des Dorfes nun bietet, unterscheidet sich fundamental von dem Anblick, an den Du Dich erinnerst. &lt;br&gt; &lt;br&gt; Das Dorf liegt in Schutt und Asche. Nur noch Trümmer sind von den Behausungen der Kannibalen übrig. Etwas oder jemand - und Du hast eine gute Ahnung, wer - hat sich Deinen Rat zu Herzen genommen, und sich einmal so richtig sattgegessen. Ach, Alveron... seufzt du. Langsam gehst Du ins Dorf. Alle Häuser sind ohne Ausnahme zerstört. Es sieht aus, als hätte Alveron daran sogar Spaß gehabt. &lt;br&gt; &lt;br&gt; Von den Kannibalen siehst Du rein gar nichts mehr, aber Du kannst Dir denken, was mit ihnen passiert ist. Einige ihrer Habseligkeiten findest Du nach einer kurzen Suche. &lt;br&gt; &lt;br&gt; Du sammelst an verschiedenen Orten fünf Goldmünzen zusammen. 
              &lt;&lt;set $gold += 5  &gt;&gt;
                                 &lt;&lt;if !(setup.inventory.has (&#39;ein Messer&#39;))&gt;&gt; 
 Besonders freust Du Dich über den Fund eines Messers.  
@@ -1983,44 +1959,27 @@ Besonders freust Du Dich über den Fund eines Messers.
                					 &lt;&lt;/if&gt;&gt;
 Nach einem letzten Blick auf die Zerstörung, die hier stattgefunden hat, fährst Du mit Deinem Weg nach Süden fort, auf dem Weg, den Du damals mit Ferenko genommen hast. Schließlich ist es Mittagszeit. 
               [[Weiter -&gt;kreuzungFerenko]] 
-             &lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if (($kannibalenBesucht==true&amp;&amp;$krakenKatastrophe==true)&amp;&amp;($ferenko==false)) &gt;&gt; /*ähm..... Kraken auf ALLE losgelassen....  */
-Du folgst dem Weg nach Süden. Doch vor Deinen Augen tut sich Unglaubliches auf. Zuvor waren Dir nur die aufgespießten Totenschädel aufgefallen, doch der Anblick, den der Rest des Dorfes nun bietet, unterscheidet sich fundamental von dem Anblick, an den Du Dich erinnerst. 
-
-Das Dorf liegt in Schutt und Asche. Nur noch Trümmer sind von den Behausungen der Kannibalen übrig. Etwas, oder jemand - und Du hast eine gute Ahnung, wer - hat sich Deinen Rat zu Herzen genommen, und sich einmal so richtig sattgegessen. Ach, Alveron... seufzt Du. Langsam gehst Du durchs Dorf. Du erinnerst Dich vage an einen Menschen, und mehrere Tiere, die Du hier gesehen hattest. Aber jetzt ist alles leer, und tot.  
-                          
+             &lt;&lt;/if&gt;&gt;&lt;&lt;if (($kannibalenBesucht==true&amp;&amp;$krakenKatastrophe==true)&amp;&amp;($ferenko==false)) &gt;&gt; /*ähm..... Kraken auf ALLE losgelassen....  */
+Du folgst dem Weg nach Süden. Doch vor Deinen Augen tut sich Unglaubliches auf. Zuvor waren Dir nur die aufgespießten Totenschädel aufgefallen, doch der Anblick, den der Rest des Dorfes nun bietet, unterscheidet sich fundamental von dem Anblick, an den Du Dich erinnerst. &lt;br&gt;Das Dorf liegt in Schutt und Asche. Nur noch Trümmer sind von den Behausungen der Kannibalen übrig. Etwas, oder jemand - und Du hast eine gute Ahnung, wer - hat sich Deinen Rat zu Herzen genommen, und sich einmal so richtig sattgegessen. Ach, Alveron... seufzt Du. Langsam gehst Du durchs Dorf. Du erinnerst Dich vage an einen Menschen, und mehrere Tiere, die Du hier gesehen hattest. Aber jetzt ist alles leer, und tot.  
                 &lt;&lt;if ((($kannibalenBesucht&amp;&amp;$krakenKatastrophe)&amp;&amp;($ferenko==false))&amp;&amp;(!setup.inventory.has (&#39;ein Messer&#39;)))&gt;&gt; 
-                               
-                Du sammelst an verschiedenen Orten auch fünf Goldmünzen zusammen.   
-                Du findest ein Messer. 
+Du sammelst an verschiedenen Orten auch fünf Goldmünzen zusammen.   
+Du findest ein Messer. 
 				&lt;&lt;run setup.inventory.add(&quot;ein Messer&quot;,{&quot;wert&quot;:5, &quot;isWaffe&quot;:true, &quot;isSchlechteWaffe&quot;:true, &quot;regeneration&quot;:0, &quot;bild&quot;:&quot;ein Messer&quot;, &quot;desc&quot;: &quot;Ein Messer. Man kann damit - nunja - Dinge schneiden. Vielleicht auch jonglieren. Du kannst es ausprobieren. Später. Vielleicht.&quot;})&gt;&gt; 
 &lt;img src=&quot;img/ein Messer.jpg&quot; width=&quot;30%&quot;&gt;
                 &lt;&lt;set $gold += 5  &gt;&gt;
                   &lt;&lt;/if&gt;&gt;                      
-Nach einem letzten Blick auf die Zerstörung, die hier stattgefunden hat, findest Du nach einigem Herumwandern einen Pfad, der nach Süden führt, und folgst ihm. 
-
-[[Weiter -&gt;kreuzungFerenko]] 
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if ($kannibalenBesucht==true&amp;&amp;($ferenkoTrennung1==true||$ferenkoTrennung2==true))&gt;&gt;
-              /*wir waren da, haben alle befreit  */
-Du folgst dem Pfad nach Süden, bis Du an dem Dorf angelangst, in welchem Du schon einmal warst. Nostalgische Gefühle breiten sich in Dir aus, als Du an die gelungene Befreiungsaktion zurückdenkst, und daran, wie Du Ferenko begegnet bist. Was der nun wohl treibt? 
-
-Die Kannibalen möchtest Du trotzdem nicht aufschrecken, aber Du weißt, dass es hinter dem Dorf, auf der anderen Seite einen einzelnen Pfad nach Süden gibt, den Du damals mit Ferenko genommen hast. Ob Du Dich wohl noch an den kompletten Weg erinnern könntest? Möchtest Du  
+Nach einem letzten Blick auf die Zerstörung, die hier stattgefunden hat, findest Du nach einigem Herumwandern einen Pfad, der nach Süden führt, und folgst ihm. &lt;br&gt;&lt;br&gt; [[Weiter -&gt;kreuzungFerenko]] 
+&lt;&lt;/if&gt;&gt;&lt;&lt;if ($kannibalenBesucht==true&amp;&amp;($ferenkoTrennung1==true||$ferenkoTrennung2==true))&gt;&gt; /*wir waren da, haben alle befreit  */
+Du folgst dem Pfad nach Süden, bis Du an dem Dorf angelangst, in welchem Du schon einmal warst. Nostalgische Gefühle breiten sich in Dir aus, als Du an die gelungene Befreiungsaktion zurückdenkst, und daran, wie Du Ferenko begegnet bist. Was der nun wohl treibt? &lt;br&gt;&lt;br&gt; Die Kannibalen möchtest Du trotzdem nicht aufschrecken, aber Du weißt, dass es hinter dem Dorf, auf der anderen Seite einen einzelnen Pfad nach Süden gibt, den Du damals mit Ferenko genommen hast. Ob Du Dich wohl noch an den kompletten Weg erinnern könntest? Möchtest Du  
 Den Pfad im Süden nehmen? Du könntest Dich am Rande des Dorfes entlangschleichen, dann solltest Du auf ihn treffen. Du wirst natürlich ganz besonders [[vorsichtig]] sein.  
 Nach [[Norden -&gt;norden]]?  
 Nach [[Osten -&gt;umweg]]?   
-&lt;&lt;/if&gt;&gt;
-
-
-&lt;&lt;if !$kannibalenBesucht&gt;&gt;
-Vorsichtig folgst Du dem Weg in die Richtung, von der Du denkst, dass sie Süden ist. Du freust Dich auf ZIVILISATION! Der Pfad wird auch immer breiter, und Du musst nicht mehr so viele Ranken aus Deinen Haaren pulen, wie zuvor, das war durchaus ermüdend. Dein Magen ist auch nicht voller geworden. Schließlich lichtet sich der Pfad, und Du stehst vor einem kleinen Dorf.  
+&lt;&lt;/if&gt;&gt;&lt;&lt;if !$kannibalenBesucht&gt;&gt;Vorsichtig folgst Du dem Weg in die Richtung, von der Du denkst, dass sie Süden ist. Du freust Dich auf ZIVILISATION! Der Pfad wird auch immer breiter, und Du musst nicht mehr so viele Ranken aus Deinen Haaren pulen, wie zuvor, das war durchaus ermüdend. Dein Magen ist auch nicht voller geworden. Schließlich lichtet sich der Pfad, und Du stehst vor einem kleinen Dorf.  
 &lt;img src=&quot;img/dorf.jpg&quot; width=&quot;100%&quot;&gt;
 Schaust Du es Dir genauer an? 
 [[Besser ja. -&gt;anschleichen]] 
 [[Nein, Du möchtest lieber sofort handeln. -&gt;DorfEntscheidungen]]
-&lt;&lt;/if&gt;&gt;
- </tw-passagedata><tw-passagedata pid="14" name="here" tags="" position="1475,950" size="100,100">Hello vorname $vorname nachname $name 
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="here" tags="" position="1475,950" size="100,100">Hello vorname $vorname nachname $name 
 
 &lt;&lt;if $name is &quot;Adam&quot;&gt;&gt;bool ist false
 &lt;&lt;else&gt;&gt; hm test
@@ -2757,25 +2716,15 @@ weiter [[im Wald nach einem Artefakt zu suchen. -&gt;alleinWeiter]]
 
 Ferenko [[nach dem nächsten Ort oder der nächsten Stadt fragen? -&gt;FerenkoStadtFragen]] 
 </tw-passagedata><tw-passagedata pid="66" name="Ferenko2" tags="" position="5250,5825" size="100,100">Du kannst [[Ferenko nach Artuya folgen-&gt;FerenkoArtuya]], oder [[weiter im Wald nach einem Artefakt zu suchen -&gt;FerenkoAlleinWeiter]].  
-</tw-passagedata><tw-passagedata pid="67" name="alleinWeiter" tags="TODO" position="5250,6200" size="100,100">&lt;&lt;set $ferenkoTrennung=true&gt;&gt;
-
-Eine Weile noch läufst Du schweigend hinter Ferenko den Dschungelpfad entlang, bis ihr schließlich auf eine Gabelung trefft. Ferenko bedankt sich nochmals bei Dir für seine Befreiung, dann trennen sich eure Wege, er geht Richtung Südwesten weiter, während Du Richtung Südosten aufbrichst. 
+</tw-passagedata><tw-passagedata pid="67" name="alleinWeiter" tags="TODO" position="5250,6200" size="100,100">&lt;&lt;set $ferenkoTrennung=true&gt;&gt;Eine Weile noch läufst Du schweigend hinter Ferenko den Dschungelpfad entlang, bis ihr schließlich auf eine Gabelung trefft. Ferenko bedankt sich nochmals bei Dir für seine Befreiung, dann trennen sich eure Wege, er geht Richtung Südwesten weiter, während Du Richtung Südosten aufbrichst. 
 
 Dieser Weg ist gesäumt von riesigen Farnen, zwischen denen der Pfad gerade noch erkennbar ist. Ab und zu siehst Du bunte Frösche Deinen Weg queren, und permanent hörst Du ein munteres Quaken aus allen Richtungen. Unwillkürlich machst Du Dir Gedanken, ob Du bei so einem Lärm schlafen kannst, dabei ist es wirklich noch zu früh für solche Überlegungen. 
-
-//TODO tshirt_Mücken/Blutegel Leben verlieren, //von ferenko aus //hoffentlich jetzt alle Möglichkeiten berücksichtigt  was wenn ferenko noch nicht begegnet?
-
+/*//TODO tshirt_Mücken/Blutegel Leben verlieren, //von ferenko aus //hoffentlich jetzt alle Möglichkeiten berücksichtigt  was wenn ferenko noch nicht begegnet?*/
 &lt;&lt;if $ferenko &amp;&amp; $kroete&gt;&gt;
-
-//mit ferenko, Krake egal, kennt kröten schon (möglich, wenn kraken am see nicht besucht wurde)  
-
-Außerdem begegnest Du wieder der riesigen Kröte... letztes Mal hat sie ein Gedicht aufgesagt! Diesmal schweigt die Kröte jedoch, schaut Dich nur rätselhaft an aus ihren goldenen Untertassenaugen. Nunmehr etwas melancholisch gestimmt, führst Du Deinen Weg fort, auf dem Du die nächsten Meter entlang von Kröten umgeben bist, die Dich alle anstarren. 
-&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if $kroete==false&amp;&amp;$ferenko&amp;&amp;$krakeBesucht == false&gt;&gt;
+/*mit ferenko, Krake egal, kennt kröten schon (möglich, wenn kraken am see nicht besucht wurde) */Außerdem begegnest Du wieder der riesigen Kröte... letztes Mal hat sie ein Gedicht aufgesagt! Diesmal schweigt die Kröte jedoch, schaut Dich nur rätselhaft an aus ihren goldenen Untertassenaugen. Nunmehr etwas melancholisch gestimmt, führst Du Deinen Weg fort, auf dem Du die nächsten Meter entlang von Kröten umgeben bist, die Dich alle anstarren. 
+&lt;&lt;/if&gt;&gt;&lt;&lt;if $kroete==false&amp;&amp;$ferenko&amp;&amp;$krakeBesucht == false&gt;&gt;
 //keine kröte, mit ferenko, kein krake
 &lt;&lt;set $kroeteBegegnet=true&gt;&gt;
-
 Bald triffst Du auf eine riesige Kröte, die Dir fast bis zum Knie geht und mitten auf dem Weg sitzt. Du bleibst stehen. Aus gelbgoldenen, intelligenten Augen schaut Dich die Kröte an, dann quakt sie einmal laut, und macht zwei träge Schritte zur Seite. 
 
 Du glaubst nicht, dass sie sich weiterbewegt als das, und gehst vorsichtig an ihr vorbei. Du erinnerst Dich vage, dass Kröten giftig sein können, und achtest darauf, sie nicht zu berühren. 
@@ -2801,13 +2750,8 @@ Vorsichtig, sehr vorsichtig tust Du genau das, und gehst durch ein Spalier von R
 
 Ein merkwürdiges ominöses Gefühl der Vorahnung ergreift dich, und Du denkst an den Reim der Kröte zurück. Du weißt, dass man von manchen Kröten high werden kann, da einige Arten halluzinogene Stoffe mit ihrer Haut absondern, aber Du bist Dir nicht sicher, ob die Kröten davon vielleicht selber high werden. 
 Du denkst zurück, aber Du kannst Dich nicht daran erinnern, ob Du eine berührt hattest. 
-
- &lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if $ferenko &amp;&amp; $krakeBesucht &amp;&amp; $kroete == false&gt;&gt;   
-
+ &lt;&lt;/if&gt;&gt;&lt;&lt;if $ferenko &amp;&amp; $krakeBesucht &amp;&amp; $kroete == false&gt;&gt;   
 //mit Ferenko, Kraken schon begegnet, Kröte noch nicht  
-
 Beim Gehen triffst Du bald fast auf eine riesige Kröte, die Dir fast bis zum Knie geht und mitten auf dem Weg sitzt. Du bleibst stehen. Aus gelbgoldenen, intelligenten Augen schaut Dich die Kröte an, dann quakt sie einmal laut, und macht zwei träge Schritte zur Seite. 
 
 Du glaubst nicht, dass sie sich weiter bewegt als das, und gehst vorsichtig an ihr vorbei. Du erinnerst Dich vage, dass Kröten giftig sein können, und achtest darauf, sie nicht zu berühren. Auch passt Du von nun an besser auf... 
@@ -2821,9 +2765,7 @@ Sie geht Dir bis zur Hüfte, und ihre goldenen Augen sind so groß wie Deine Hä
 Vorsichtig, sehr vorsichtig tust Du genau das, und zwischen einem Spalier von Riesenkröten hindurch von denen nicht eine einzige Dich auch nur einen Augenblick lang aus den Augen lässt. 
 
 Merkwürdige Begegnung... 
-&lt;&lt;/if&gt;&gt;
-
-In Gedanken versunken folgst Du dem Weg weiter Richtung Osten. Die Luft wird feuchter, und Du wirst von Mückenschwärmen geplagt. Wild um Dich schlagend gehst Du weiter. Der Boden wird matschig, und Deine Schuhe dreckig. Du hoffst, dass es nicht bald anfängt zu regnen, und hoffst, dass Deine Wegwahl Dich nicht in einem Sumpf enden lässt.  
+&lt;&lt;/if&gt;&gt;In Gedanken versunken folgst Du dem Weg weiter Richtung Osten. Die Luft wird feuchter, und Du wirst von Mückenschwärmen geplagt. Wild um Dich schlagend gehst Du weiter. Der Boden wird matschig, und Deine Schuhe dreckig. Du hoffst, dass es nicht bald anfängt zu regnen, und hoffst, dass Deine Wegwahl Dich nicht in einem Sumpf enden lässt.  
 
  [[Weiter -&gt;osten]] </tw-passagedata><tw-passagedata pid="68" name="FerenkoArtuya" tags="" position="5375,5825" size="100,100">Als Du Ferenko fragst, ob Du ihn nach Artuya begleiten kannst, willigt er bereitwillig ein. 
 [[Weiter -&gt;artuya]]</tw-passagedata><tw-passagedata pid="69" name="FerenkoAlleinWeiter" tags="" position="5375,5950" size="100,100">Du hast das Gefühl, mit diesem Urald noch nicht ganz fertig zu sein. Es warten noch viele Abenteuer auf dich. 
@@ -2931,17 +2873,9 @@ Du weißt nicht genau warum, aber Du fängst an laut: [[&quot;We are the Champio
 
 [[Du fragst die Frau wer sie ist. -&gt;Nymphe2]] 
 
-[[Du näherst Dich dem Wesen. -&gt;Nymphe3]] </tw-passagedata><tw-passagedata pid="83" name="osten" tags="TODO" position="5250,6925" size="100,100"> &lt;&lt;if $anakonda==true&gt;&gt;
-Du hast bereits die Erfahrung gemacht, dass es in dieser Gegend besonders viele Schlangen gibt. Zum Glück siehst Du dieses Mal keine. Der Weg wird deutlich matschiger, erneut begegnest Du auf diesem Pfad fiesen Blutegeln und Moskitos. Bäh! Warum warst Du noch einmal hier lang gegangen? Du läufst weiter und weiter. 
-
-[[Weiter -&gt;dschungelStalker]]
-&lt;&lt;else&gt;&gt;
-&lt;&lt;set $anakondaBegegnet=true&gt;&gt;  
-
-Weiter kämpfst Du Dich durch Schwärme von Moskitos und Mücken. Kreaturen, von denen Du bisher nur gehört hast, tauchen auf: Blutegel. Sie hängen scharenweise an Deinen Beinen, und Du merkst es nicht mal, außer wenn Du Dich kratzen willst und fast mitten hinein fasst. Du lässt sie erst mal da hängen....   
-/*
-//TODO Blutegel/ Tshirt Condition?  //
-*/
+[[Du näherst Dich dem Wesen. -&gt;Nymphe3]] </tw-passagedata><tw-passagedata pid="83" name="osten" tags="TODO" position="5250,6925" size="100,100"> &lt;&lt;if $anakonda==true&gt;&gt;Du hast bereits die Erfahrung gemacht, dass es in dieser Gegend besonders viele Schlangen gibt. Zum Glück siehst Du dieses Mal keine. Der Weg wird deutlich matschiger, erneut begegnest Du auf diesem Pfad fiesen Blutegeln und Moskitos. Bäh! Warum warst Du noch einmal hier lang gegangen? Du läufst weiter und weiter. &lt;br&gt;&lt;br&gt;[[Weiter -&gt;dschungelStalker]]
+&lt;&lt;else&gt;&gt;&lt;&lt;set $anakondaBegegnet=true&gt;&gt; Weiter kämpfst Du Dich durch Schwärme von Moskitos und Mücken. Kreaturen, von denen Du bisher nur gehört hast, tauchen auf: Blutegel. Sie hängen scharenweise an Deinen Beinen, und Du merkst es nicht mal, außer wenn Du Dich kratzen willst und fast mitten hinein fasst. Du lässt sie erst mal da hängen....   
+/*//TODO Blutegel/ Tshirt Condition?  //*/
 Der Speichel von Blutegeln ist extrem gesund - Du bist also vor Thrombose in der nächsten Zeit erst mal sicher! Es wird matschiger um Dich herum, andere Baumarten treten auf, und überall hängen Dir Lianen oder Wurzeln ins Gesicht. Oder andere Dinge? 
 
 Plötzlich trittst Du auf etwas, das eine merkwürdige weiche Konsistenz hat. &#39;Ein komischer Ast ist das&#39;, denkst Du dir, da fängt die Anakonda bereits an, sich dafür vorzubereiten, Dich in ihre warme Umarmung zu nehmen. Du hast nicht viel Zeit, Dich zu entscheiden! Was tust du:  
@@ -4088,7 +4022,9 @@ TODO autosave
 TODO item nicht verbrauchen wenn bereits volles leben 
 TODO leben und gold auf die allgemeine seite 
 TODO icons 
+TODO pilztee fixen
 
+DONE refresh beim Essen
 DONE Leben clampen 
 DONE Leben = 0 führt zu &quot;Tod&quot; passage
 DONE alle Items haben Bilder 
