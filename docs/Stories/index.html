@@ -127,7 +127,6 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 }
 
 /*basics*/
-
 body {
   background-image: url("img/dgabdjungle4.jpg");
   background-repeat: no-repeat;
@@ -474,6 +473,7 @@ a:hover {
   position: fixed;
   left: 2%;  
 }
+
 #function-menu span {
   color: var(--menu); 
   position: relative;
@@ -485,6 +485,15 @@ a:hover {
   width:1em;   /* scale to match text size */
   height: auto;
   vertical-align: middle;
+}
+#gold-nr {
+    position: relative;
+  	font-family: var(--special);
+  	font-size: 150%;
+    left: 4vw;
+	top: 1vh;
+    color: var(--menu);
+    font-weight: bold;
 }
 #function-menu span img:hover {
   transition: color 0.3s ease;
@@ -1281,14 +1290,13 @@ a:hover {
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document).on(':passagedisplay', function () {
     // Clamp leben globally
-    State.variables.leben = Math.max(0, Math.min(State.variables.leben, 20));
-
+	State.variables.leben = Math.max(0, Math.min(State.variables.leben, 20));
+	$("#gold-number").text(State.getVar("$gold")); //updates gold
     // If life <= 0, go to death passage
     if (State.variables.leben <= 0) {
 		State.variables.leben = 20;
       	Engine.play("tod"); 
     }
-  	
 });
 
 /* Health Bar top right code - Start */
@@ -1467,7 +1475,6 @@ $(document).on(':passagerender', function (event) {
   else {
     document.body.style.backgroundImage = 'url("img/dgabdjungle4.jpg")';
   }
-
   document.body.style.backgroundRepeat = 'no-repeat';
   document.body.style.backgroundSize = 'cover';
   document.body.style.backgroundPosition = 'center';
@@ -16030,7 +16037,7 @@ Die Kellnerin zieht eine Augenbraue hoch, als sie Deine Ausbeute sieht.
 [[Weiter -&gt;bunterHundWeitereWuensche]]
 &lt;&lt;unset $eier&gt;&gt;
 &lt;&lt;unset $v&gt;&gt;
-&lt;&lt;unset $eier_orte[]&gt;&gt;</tw-passagedata><tw-passagedata pid="1197" name="eltronsVerlassen" tags="artuya " position="5225,10675" size="100,100">Du drehst auf der Stelle um. 
+&lt;&lt;unset $eier_orte&gt;&gt;</tw-passagedata><tw-passagedata pid="1197" name="eltronsVerlassen" tags="artuya " position="5225,10675" size="100,100">Du drehst auf der Stelle um. 
 
 Dabei rempelst Du einen Karton an, der umfällt und gegen einen Schirmständer schlägt, der scheppernd umfällt. Das Geräusch kommt Dir überlaut vor, und Du machst, dass Du so schnell wie möglich wegkommst. 
 
@@ -22511,10 +22518,12 @@ Tipp: Du kannst durch den Konsum von Früchten oder Heilgegenständen Leben zur�
         &lt;span id=&quot;monsters&quot;&gt;&lt;img src=&quot;img/paw.svg&quot; alt=&quot;Monsters&quot;&gt;&lt;/span&gt;
         &lt;span id=&quot;inventory&quot;&gt;&lt;img src=&quot;img/bp.svg&quot; alt=&quot;Inventory&quot;&gt;&lt;/span&gt;
         &lt;span id=&quot;erfolge&quot;&gt;&lt;img src=&quot;img/star.svg&quot; alt=&quot;Erfolge&quot;&gt;&lt;/span&gt;
+        &lt;span id=&quot;gold-nr&quot;&gt;Gold: &lt;span id=&quot;gold-number&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+
     &lt;/div&gt;
     &lt;div id=&quot;function-menuR&quot;&gt;
          		&lt;div id=&quot;verticalhealthbarbkg&quot; class=&quot;vertbarbkg&quot;&gt; 
-                		&lt;div id=&quot;verticalhealthbar-clip&quot;&gt;&lt;/div&gt;
+             			&lt;div id=&quot;verticalhealthbar-clip&quot;&gt;&lt;/div&gt;
         				&lt;img id=&quot;verticalhealthbar&quot; src=&quot;img/life2.png&quot; alt=&quot;HP&quot;&gt;
                         &lt;img id=&quot;heart&quot; src=&quot;img/dragonheart2.png&quot; alt=&quot;Extra Life&quot; /&gt; 
 				&lt;/div&gt; 
