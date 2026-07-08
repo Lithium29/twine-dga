@@ -382,6 +382,16 @@ a:hover {
   margin: 0 auto;
   transform: translateX(-10%);
 }
+.footer button {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .05em;
+  padding: .5em;
+}
 
 /*textbox*/
 #story .macro-textbox {
@@ -487,11 +497,9 @@ a:hover {
   vertical-align: middle;
 }
 #gold-nr {
-    position: relative;
   	font-family: var(--special);
-  	font-size: 130%;
-    color: var(--menu);
     font-weight: bold;
+    transform: translateY(0.25rem);
 }
 #function-menu span img:hover {
   transition: color 0.3s ease;
@@ -612,6 +620,22 @@ a:hover {
 }
 /*--END MENU R*/ 
 
+/*FOOTER*/ 
+.footer {
+  background-color:transparent;
+  height: 10%;
+  width: 100%;
+  transition: 0.75s;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.dm .footer {
+  background-color: var(--dm-menu);
+}
+
 /*-----for PHONES Healthbar---*/
 @media (max-width: 500px) {
     #verticalhealthbarbkg {
@@ -705,7 +729,6 @@ a:hover {
   /*background-color: #1b1408; 
   */
   background-color:transparent;
-  background: radial-gradient(circle, red, yellow, green);
   background-image: url("img/buttonh1.png");
   background-repeat: no-repeat; 
   background-position: center;
@@ -766,7 +789,6 @@ a:hover {
   display: none !important;
 }
 #ui-dialog-body {
-
   border: 1px solid var(--menu);
   background-image: url("img/bg inv5.png");
   background-color:var(--bg2);
@@ -784,7 +806,6 @@ a:hover {
   height: auto;
   max-width: 60vw;
   position: relative;
-  /*background-color: var(--bg2);*/
   height: auto;
   font-family: var(--sansserif);
   font-size: 90%;
@@ -792,10 +813,6 @@ a:hover {
   flex-direction: column;
   */
   align-items: center;    /* center horizontally */
-  
-  /*
-  border: 1px solid var(--menu);
-  */
 }
 .dm #ui-dialog-body {
 }
@@ -820,6 +837,7 @@ a:hover {
 .dm #ui-dialog-body button:hover {
   box-shadow: 4px 4px 0 var(--dm-text);
 }
+
 
 /*setting toggle buttons*/
 #ui-dialog-body.settings button[id|=setting-control] {
@@ -22488,8 +22506,11 @@ Der Drache schließt wieder die Augen.
 Von ihm wirst Du nichts weiter hören, deswegen machst Du Dich auf den Weg, zurück aus dem Tempel heraus. 
 [[Weiter -&gt;raum1Entscheidung]] </tw-passagedata><tw-passagedata pid="1690" name="dracheNein" tags="" position="1125,11075" size="100,100">Der Drache regt sich nicht, er hat offenbar kein Interesse an Deinem Gegenstand. 
 
-[[Weiter -&gt;dracheBestechen]] </tw-passagedata><tw-passagedata pid="1691" name="PassageFooter" tags="" position="1350,1375" size="100,100">/*displayed testnig After Text*/  
+[[Weiter -&gt;dracheBestechen]] </tw-passagedata><tw-passagedata pid="1691" name="footer-menu" tags="" position="1350,1375" size="100,100">/*displayed testnig After Text*/  
 
+&lt;&lt;button &quot;Passagenname anzeigen&quot;&gt;&gt;
+    &lt;&lt;run alert(passage())&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 </tw-passagedata><tw-passagedata pid="1692" name="PassageHeader" tags="" position="1350,1500" size="100,100">/*run before text in normal passage*/ </tw-passagedata><tw-passagedata pid="1693" name="tod" tags="Tot" position="2150,5400" size="100,100">Du hast zu viel Schaden erlitten, sodass Dein Leben auf 0 gefallen ist, und Du gestorben bist. 
 
 TU BIST TOT. 
@@ -22532,7 +22553,9 @@ Tipp: Du kannst durch den Konsum von Früchten oder Heilgegenständen Leben zur�
 	&lt;span id=&quot;back&quot; class=&quot;lnr lnr-chevron-left&quot;&gt;&lt;/span&gt;
 	&lt;div id=&quot;passages&quot;&gt;&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="1697" name="ITEMS" tags="item TODO" position="1475,825" size="100,100">Items
+&lt;div class=&quot;footer&quot;&gt;
+	&lt;span id=&quot;footer-menu&quot; data-passage=&quot;footer-menu&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="1697" name="ITEMS" tags="item TODO" position="1475,825" size="100,100">Items
 
 TODOS: 
 //BILD Flasche Trank ungenutzt Bild Rosa auch
