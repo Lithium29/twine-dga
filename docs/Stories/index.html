@@ -3553,6 +3553,7 @@ setup.inventory = {
    	&lt;&lt;set $pilzAlteBoese to false&gt;&gt;
    	&lt;&lt;set $pilzFelder to false&gt;&gt;
    	&lt;&lt;set $pilzLabyrinth to false&gt;&gt;
+    &lt;&lt;set $pilztee to 0&gt;&gt;
    	&lt;&lt;set $racheDerRosalinde to false&gt;&gt;
    	&lt;&lt;set $rezeptABekannt to false&gt;&gt;
    	&lt;&lt;set $rezeptBBekannt to false&gt;&gt;
@@ -8145,7 +8146,7 @@ Möchtest Du noch etwas kaufen?
 
 [[Du trinkst den Saft dennoch-&gt;mineurSaftJa]]
 [[Du lässt die Finger von diesem Saft-&gt;mineurSaftNein]] 
-</tw-passagedata><tw-passagedata pid="524" name="mineurTee" tags="" position="4925,800" size="100,100">Du bestellst einen Tee. Der Kellner zieht die Augenbrauen hoch. Du denkst Dir nichts dabei, und kurze Zeit später steht eine dampfende riesige Tasse Tee vor dir. Immerhin musst Du nicht aus einem Fingerhut trinken! Du nippst vorsichtig an Deinem Pilztee. Die blaue lumineszierende Farbe ist faszinierend, und der Geschmack des Tees ist erdig und herb. Du findest ihn ganz lecker. Nach einigen Schlucken fühlst Du Dich energetisiert und wach. 
+</tw-passagedata><tw-passagedata pid="524" name="mineurTee" tags="" position="4900,775" size="100,100">Du bestellst einen Tee. Der Kellner zieht die Augenbrauen hoch. Du denkst Dir nichts dabei, und kurze Zeit später steht eine dampfende riesige Tasse Tee vor dir. Immerhin musst Du nicht aus einem Fingerhut trinken! Du nippst vorsichtig an Deinem Pilztee. Die blaue lumineszierende Farbe ist faszinierend, und der Geschmack des Tees ist erdig und herb. Du findest ihn ganz lecker. Nach einigen Schlucken fühlst Du Dich energetisiert und wach. 
 Du gewinnst 2 Leben. &lt;&lt;set $leben+=2&gt;&gt; 
 
 &lt;&lt;if ($katze)&gt;&gt; Die Katze schnuppert am Tee, probiert ihn aber nicht. Dann legt sie sich unter den Tisch, und scheint einzuschlafen.&lt;&lt;/if&gt;&gt; 
@@ -8191,29 +8192,28 @@ Du nimmst an, dass die meisten hier irgendeinen handwerklichen Beruf haben, sie 
 Möchtest Du... 
 [[direkt gehen-&gt;kneipeGehen]] oder noch 
 [[fragen, ob Du in diesem Wirtshaus übernachten kannst?-&gt;kneipePennen]]
-</tw-passagedata><tw-passagedata pid="530" name="mineurTeeNein" tags="" position="4875,900" size="100,100">Solch einen leuchtenden Tee hast Du noch nie gesehen, und der Geschmack ist nicht schlecht, aber Du weißt nicht, welche Wirkungen so ein Tee auf Menschen haben könnte. [[Weiter -&gt;kneipeAbgang]] </tw-passagedata><tw-passagedata pid="531" name="mineurTeeJa" tags="" position="5000,900" size="100,100">Der Tee hat eine interessante Wirkung - Du nimmst alles viel schärfer und genauer wahr als sonst! Aufgeputscht beobachtest Du die anwesenden Zwerge in der Kneipe. Es kommt Dir vor als könntest Du ALLES sehen! Was für ein Gefühl! 
+</tw-passagedata><tw-passagedata pid="530" name="mineurTeeNein" tags="" position="4800,900" size="100,100">Solch einen leuchtenden Tee hast Du noch nie gesehen, und der Geschmack ist nicht schlecht. Aber Du weißt nicht, welche Wirkungen so ein Tee auf Menschen haben könnte. [[Weiter -&gt;kneipeAbgang]] </tw-passagedata><tw-passagedata pid="531" name="mineurTeeJa" tags="" position="5000,900" size="100,100">Der Tee hat eine interessante Wirkung - Du nimmst alles viel schärfer und genauer wahr als sonst! Aufgeputscht beobachtest Du die anwesenden Zwerge in der Kneipe. Es kommt Dir vor als könntest Du ALLES sehen! Was für ein Gefühl! 
 
 Doch die Wirkung lässt bald nach, und ein dumpfer Kopfschmerz setzt ein. Für Menschen hat dieser Tee eindeutig Nebenwirkungen, wenn er auch für Zwerge gesund sein mag.. 
 
 Du verlierst 2 Leben &lt;&lt;set $leben-=2&gt;&gt; 
 [[Weiter -&gt;kneipeAbgang]] 
 
-</tw-passagedata><tw-passagedata pid="532" name="mineurTee2" tags="" position="4950,800" size="100,100">/*mineur unbekannt*/
-
+</tw-passagedata><tw-passagedata pid="532" name="mineurTee2" tags="" position="5025,775" size="100,100">&lt;&lt;if $pilztee&gt;=3&gt;&gt;
+Plötzlich fängt Dein Magen übel an zu grummeln, und Du musst extrem laut rülpsen! 
+Ein Zwerg an einem benachbarten Tisch dreht sich zu Dir um, und reckt anerkennend den Daumen in die Höhe - in der Zwergenstadt ist rülpsen durchaus anerkannt, und Du hast Dir wohl gerade den Respekt Deines Nachbarn verdient, der sich als &quot;Timo&quot; vorstellt. 
+Doch leider wird Dir schlecht, sobald Du nur daran denkst, weiter Pilztee zu trinken... 
+[[Weiter -&gt;mineurTeeNein]]
+&lt;&lt;else&gt;&gt;
+/*mineur unbekannt*/
 Du bestellst einen Tee. Der Kellner zieht die Augenbrauen hoch. Du denkst Dir nichts dabei, und kurze Zeit später steht eine dampfende riesige Tasse Tee vor dir. Immerhin musst Du nicht aus einem Fingerhut trinken! Du nippst vorsichtig an Deinem Pilztee. Die blaue lumineszierende Farbe ist faszinierend, und der Geschmack des Tees ist erdig und herb. Du findest ihn ganz lecker. Nach einigen Schlucken fühlst Du Dich energetisiert und wach. 
 Du gewinnst 2 Leben. &lt;&lt;set $leben+=2&gt;&gt; 
-
+&lt;&lt;set $pilztee++&gt;&gt;
 &lt;&lt;if ($katze)&gt;&gt; Die Katze schnuppert am Tee, probiert ihn aber nicht. Dann legt sie sich unter den Tisch, und scheint einzuschlafen.&lt;&lt;/if&gt;&gt; 
 
 [[Du trinkst die ganze Tasse aus -&gt;mineurTeeJa2]]
 [[Du trinkst nicht die ganze Tasse azus -&gt;mineurTeeNein]]
-
-
-
-
-n:  //nicht ganze TasseSolch einen leuchtenden Tee hast Du noch nie gesehen, und der Geschmack ist nicht schlecht, aber Du weißt nicht, welche Wirkungen so ein Tee auf Menschen haben könnte. kneipeAbgang();else .  
-
-4: krummeKatzeBar();else .  </tw-passagedata><tw-passagedata pid="533" name="mineurTeeJa2" tags="" position="4950,1150" size="100,100">Behaglich die Zwerge im Raum beobachtend, trinkst Du auch den Rest des blauen Tees noch aus. Deine Gedanken sind klar, und Du nimmst den Raum mit einer Schärfe wahr, die Du vorher noch nicht kanntest. 
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="533" name="mineurTeeJa2" tags="" position="4950,1150" size="100,100">Behaglich die Zwerge im Raum beobachtend, trinkst Du auch den Rest des blauen Tees noch aus. Deine Gedanken sind klar, und Du nimmst den Raum mit einer Schärfe wahr, die Du vorher noch nicht kanntest. 
 
 Deine Augen sehen Details, die Dir vorher verborgen waren, und Du siehst, wie ein abgewetzt aussehender Zwerg einem anderen den Geldbeutel abschneidet, als er an dem vorbei zum Ausgang geht! Was tust du: 
 [[Du schreist: Haltet den Dieb!-&gt;mineurDieb]]
