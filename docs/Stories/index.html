@@ -18036,7 +18036,6 @@ Du bezahlst 8 Gold für eine selbstrasselnde Rassel!
 Eine Weile lang hörst Du ihr fröhlich beim Rasseln zu, dann steckst Du sie lieber in Deinen Rucksack. 
 &lt;&lt;run setup.inventory.add(&quot;eine selbstrasselnde Rassel&quot;,{&quot;wert&quot;:6, &quot;quest&quot;:false, &quot;regeneration&quot;:0, &quot;bild&quot;:&quot;rassel&quot;, &quot;desc&quot;: &quot;Diese Rassel hört einfach nicht auf zu rasseln! Dies ist ein wunderschönes Geschenk für Kinder, deren Eltern Du nicht magst!&quot;})&gt;&gt;
 &lt;&lt;set $gold-=8&gt;&gt;
-
 [[Weiter -&gt;willibusterOptionen]]
 &lt;&lt;/replace&gt;&gt;
 &lt;&lt;replace #williArbeit&gt;&gt; &lt;&lt;/replace&gt;&gt;
@@ -18080,8 +18079,8 @@ Höflich lehnst Du das Angebot ab, Willibuster scheint darüber leicht enttäusc
 &lt;&lt;replace #williRassel&gt;&gt; &lt;&lt;/replace&gt;&gt;
 &lt;&lt;replace #williArbeit&gt;&gt; &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="1315" name="willibusterArbeit" tags="artuya " position="5100,12475" size="100,100">Willibuster hat Dir vor seinem Verschwinden noch die Kasse gezeigt, Dir aber nicht den Schlüssel zum großen Fach gegeben, nur zum kleinen Wechselgeld. Ganz vertraut er Dir wohl doch nicht, er meint, wenn jemandem das mit dem Wechseln nicht passt, soll der später wiederkommen. 
-
+</tw-passagedata><tw-passagedata pid="1315" name="willibusterArbeit" tags="artuya " position="5100,12475" size="100,100">&lt;&lt;set $williArbeit=true&gt;&gt;
+Willibuster hat Dir vor seinem Verschwinden noch die Kasse gezeigt, Dir aber nicht den Schlüssel zum großen Fach gegeben, nur zum kleinen Wechselgeld. Ganz vertraut er Dir wohl doch nicht, er meint, wenn jemandem das mit dem Wechseln nicht passt, soll der später wiederkommen. 
 
 Es kommen bald einige Studenten in den Laden, die aber nur Kleinigkeiten kaufen. Zum Glück hat keiner schwere Fragen an Dich. Dann ist erst mal nichts los, und Dich überkommt in Deiner Langeweile das Verlangen, mal einen der selbsthüpfenden Flummis auszuprobieren. 
 Dafür müsstest Du nur den Deckel aufmachen, und einen herausfangen... 
