@@ -15552,13 +15552,13 @@ Sein Lächeln macht nun eher einen lauernden Eindruck.
 
 &lt;&lt;if $gold&gt;=5&gt;&gt;
 [[Du legst die 5 Gold auf den Tisch|brokerLeistung][$gold-=5]]
+[[Du versuchst, ihn herunter zu handeln -&gt;brokerHandeln]]
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $gold&lt;5&gt;&gt;
 Du kramst in Deinem Geldbeutel, aber 5 Gold bekommst Du beim Besten Willen nicht mehr zusammen. 
 [[Oh no! Du verlässt die Kneipe -&gt;diebesKneipePlatz]]
 [[Du versuchst, ihn herunter zu handeln -&gt;brokerHandeln]]
 &lt;&lt;/if&gt;&gt;
-[[Du versuchst, ihn herunter zu handeln -&gt;brokerHandeln]]
 
 </tw-passagedata><tw-passagedata pid="1181" name="brokerHandeln" tags="artuya " position="1975,12175" size="100,100">&lt;&lt;if $gold&lt;5&gt;&gt;
 Du kramst in Deinem Geldbeutel, aber 5 Gold bekommst Du beim Besten Willen nicht mehr zusammen. Du zuckst mit den Achseln, und sagst: 
@@ -15577,7 +15577,7 @@ Du bist wieder alleine hier. Schnell trinkst Du Dein Bier aus, und verlässt die
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-
+&lt;&lt;if $gold &gt;=5&gt;&gt;
 Du kramst in Deinem Geldbeutel nach Gold, aber hältst dann inne. 
 &quot;3 Gold.&quot; sagst Du dann. 
 
@@ -15617,15 +15617,13 @@ Doch der Mann findet Dein Angebot gar nicht lustig. Mit einer blitzschnellen Bew
         &lt;&lt;replace &quot;#brokerWork&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
                 &lt;&lt;replace &quot;#broker5&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
   &lt;&lt;/link&gt;&gt;&lt;/span&gt;
-
 &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;
-
 &lt;span id=&quot;broker5&quot;&gt;
  [[Du gibst ihm doch 5 Gold. |brokerLeistung][$gold-=5]]
 &lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="1182" name="brokerLeistung" tags="artuya item" position="1850,12250" size="100,100">Die Dunkle Stimme des Mannes fängt an, eindringlich zu Dir zu sprechen.  
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="1182" name="brokerLeistung" tags="artuya item" position="1850,12250" size="100,100">Die Dunkle Stimme des Mannes fängt an, eindringlich zu Dir zu sprechen.  
 
  &lt;span id=&quot;brokerNews&quot;&gt;&lt;&lt;link &quot;Du fragst nach Neuigkeiten über die Umgebung. &quot;&gt;&gt;&lt;&lt;replace &quot;#brokerNews&quot;&gt;&gt;
 &quot;Nun, Neuigkeiten.&quot; 
