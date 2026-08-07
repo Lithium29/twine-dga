@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="index" startnode="1695" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="1D81CF10-299E-4C65-8E33-0BBBC3AA7ED1" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&display=swap');
+	<tw-storydata name="index" startnode="1010" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="1D81CF10-299E-4C65-8E33-0BBBC3AA7ED1" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&display=swap');
 /*put your theme colors & fonts here so that you don't have to type the codes over and over again!*/
 :root {
   /*light mode (default)*/
@@ -1346,14 +1346,21 @@ $(document).on(":passagedisplay", function() {
 /* Health Bar code - End */
 
 //Weltkarte 
+
 window.map = function(){
-	Dialog.setup("Weltkarte");
+	Dialog.setup("Karte");
   	let mapHTML =""; 
   	mapHTML += "<hr>";
-	mapHTML += `<img src="img/map2.jpg" style="width:100%; height:auto;"/>`;
-    Dialog.wiki(mapHTML);
+  if (tags().includes("artuya")) {
+     mapHTML += `<img src="img/map artuya2.jpg" style="width:100%; height:auto;"/>`;//wenn tag artuya bild artuya3
+  }
+	else {mapHTML += `<img src="img/map2.jpg" style="width:100%; height:auto;"/>`;
+             }
+  	Dialog.wiki(mapHTML);
     Dialog.open();
+         
 }
+
 
 //ERFOLGE 
 window.erfolge = function(){
@@ -6616,7 +6623,7 @@ Du dachtest ja, Du seist abgehärtet, da Du schon einmal draußen gezeltet hast,
 Als sich Deine Umgebung langsam grau/schwarz färbt, und der Feuerball der Sonne hinter den Baumwipfeln der Bäume verschwindet, fällt Dir auf, dass es vielleicht eine gute Idee wäre, einen Schlafplatz zu finden. 
 
 Genau in diesem Moment glaubst Du, vor Dir links am Wegesrand ein Gemäuer zu erkennen. 
-&lt;img src=&quot;img/ca spukhaus.jpg&quot; width=&quot;100%&quot;&gt;
+&lt;img src=&quot;img/spukhaus.jpg&quot; width=&quot;100%&quot;&gt;
 
 [[Möchtest Du dort hingehen, um zu sehen ob man dort übernachten kann?-&gt;spukhaus]]
 [[Oder lieber versuchen, auf einem Baum zu schlafen?-&gt;baum]]
@@ -6987,24 +6994,17 @@ Eine Zeit lang geht es Durch den Dschungel den Rand der Berge entlang, bis Du an
 &lt;&lt;/if&gt;&gt;
 Einerseits geht es hier nach Westen weiter, oder auf einer breiteren Straße nach Süden. Du hast die Wahl:  
 [[Westen-&gt;westen]]
-[[Süden-&gt;strasseUmkehrSueden]]</tw-passagedata><tw-passagedata pid="433" name="strasseAffenVerschleppung" tags="" position="3200,4175" size="100,100">&lt;&lt;set $nw = false&gt;&gt;
-&lt;&lt;set $so = false&gt;&gt;
-&lt;&lt;set $ns = false&gt;&gt;
+[[Süden-&gt;strasseUmkehrSueden]]</tw-passagedata><tw-passagedata pid="433" name="strasseAffenVerschleppung" tags="" position="3200,4175" size="100,100">/*&lt;&lt;run setup.inventory.add(&quot;blaue Bananen&quot;,{&quot;wert&quot;:2, &quot;regeneration&quot;:2, &quot;isFrucht&quot;:true, &quot;bild&quot;:&quot;blaueBanane&quot;, &quot;desc&quot;: &quot;Bananen. Aber in blau!&quot;})&gt;&gt; 
+&lt;&lt;run setup.inventory.add(&quot;blaue Bananen&quot;,{&quot;wert&quot;:2, &quot;regeneration&quot;:2, &quot;isFrucht&quot;:true, &quot;bild&quot;:&quot;blaueBanane&quot;, &quot;desc&quot;: &quot;Bananen. Aber in blau!&quot;})&gt;&gt; &lt;&lt;run setup.inventory.add(&quot;blaue Bananen&quot;,{&quot;wert&quot;:2, &quot;regeneration&quot;:2, &quot;isFrucht&quot;:true, &quot;bild&quot;:&quot;blaueBanane&quot;, &quot;desc&quot;: &quot;Bananen. Aber in blau!&quot;})&gt;&gt; */
 
-&lt;&lt;set $items = setup.inventory.getItems()&gt;&gt;
-&lt;&lt;for _i to 0; _i&lt;$items.length; _i++&gt;&gt;
-&lt;&lt;if ($items[_i].isFrucht==true)&gt;&gt;
-&lt;&lt;set _hasFrucht=true&gt;&gt;
-&lt;&lt;set $affe=true&gt;&gt;
+&lt;&lt;set $nw = false&gt;&gt;&lt;&lt;set $so = false&gt;&gt;&lt;&lt;set $ns = false&gt;&gt;&lt;&lt;set $items = setup.inventory.getItems()&gt;&gt;&lt;&lt;for _i to 0; _i&lt;$items.length; _i++&gt;&gt;&lt;&lt;if ($items[_i].isFrucht==true)&gt;&gt;&lt;&lt;set _hasFrucht=true&gt;&gt;&lt;&lt;set $affe=true&gt;&gt;
  Das Gebirge, überwachsen von Dschungel, ragt vor Dir empor. Bald wird es Dunkel, und Du wärst gut beraten, Dir bald einen Schlafplatz zu suchen, damit Du Dich morgen mit frischer Energie wieder auf den Weg machen kannst. Doch noch während Du nach einer guten Stelle Ausschau hälst, hast Du plötzlich das ungute Gefühl, dass etwas Dich beobachtet. 
  
 Du glaubst, in den Bäumen um Dich herum, Schatten huschen zu sehen, einige kleiner, andere größer... Du gehst schneller, aber sie folgen Dir. Du hörst ab und zu merkwürdige Schreie, und hörst Blätter rascheln. 
 Nach einigen gespannten Minuten ist es so weit: Die Horde greift an. Die Allianz der Unbekannten - nun im Dämmerlicht des Abends enthüllt - entpuppt sich als eine Horde Affen. 
 Es handelt sich bei ihnen um verschiedene Arten, aber alle haben offenbar das gleiche Ziel. Dich. 
-[[Weiter-&gt;affen2]]
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;/for&gt;&gt;
-&lt;&lt;if (!_hasFrucht)&gt;&gt;
+[[Weiter-&gt;affen2]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;/for&gt;&gt;&lt;&lt;if (!_hasFrucht)&gt;&gt;
 Das Gebirge, überwachsen von Dschungel, ragt vor Dir empor. Bald wird es Dunkel, und Du wärst gut beraten, Dir bald einen Schlafplatz zu suchen, damit Du Dich morgen mit frischer Energie wieder auf den Weg machen kannst. 
 
 Doch noch während Du nach einer guten Stelle Ausschau hälst, hast Du plötzlich das ungute Gefühl, dass etwas Dich beobachtet. Du vermeinst, in den Bäumen um Dich herum, Schatten huschen zu sehen, einige kleiner, andere größer... 
@@ -7015,7 +7015,6 @@ Es ging die letzten Stunden lang stetig bergauf, und auf das Gebirge zu. So bist
 &lt;&lt;unset _hasFrucht&gt;&gt;
 [[Weiter -&gt;eingangBerg]]
 &lt;&lt;/if&gt;&gt;
-
 
 </tw-passagedata><tw-passagedata pid="434" name="nachtNordenEntscheiDungUebernachtung" tags="" position="3500,6275" size="100,100">Möchtest Du dort hingehen, um zu [[sehen ob man dort übernachten kann?-&gt;spukhaus]] Oder lieber [[versuchen, auf einem Baum zu schlafen?-&gt;baum]]Oder entscheidest Du Dich für ein [[Stückchen weiches Gras am Wegesrand-&gt;aufGras]]? </tw-passagedata><tw-passagedata pid="435" name="westen" tags="TODO" position="2675,4425" size="100,100">/*/TODO /wüste//sandteufel, lockkakteen mit früchten, hamster, wind (Schal?), Sandschlange, Loch mit Spinnen, Irrlichter, Wüstlinge (kleine Kobolde der Wüste), // Sabaya: Töpferladen Zelda, Kristalle, Obst, Jobs, Waffen, Warnung Mimics bei Relikten //Tempel: Heuhaufen, Sphinx, Rätsel (X drücken um Geheimgang zu aktivieren), Zeichen an den richtigen Türen, die als Code eingegeben werden //müssen, etwas drehen so dass es passt, finde den fake-Schatz-Mimic   */
 &lt;&lt;if $saOs&gt;&gt; Bald wird die Luft feuchter, und schwerer, spärliche Vegetation taucht am Wegesrand auf. 
@@ -13522,7 +13521,7 @@ Auf ihren Roben ist ein großer goldener Kreis eingestickt, der wohl für irgenD
 In einem an ein Haus angrenzenden Stall picken Hühner gelassen auf einem winzigen Flecken Gras herum. Der Geruch der Stadt ist überwältigend, es richt nach Unrat, Pferden und anderen Tieren, und Du bist mitten drin. 
 
 &lt;img src=&quot;img/artuya2.jpg&quot; width=&quot;100%&quot;&gt;
-[[Weiter -&gt;artuyaUmschauen2]]</tw-passagedata><tw-passagedata pid="1000" name="artuyaHauptstrasse2Optionen" tags="artuya " position="4925,10275" size="100,100">Möchtest Du  
+[[Weiter -&gt;artuyaUmschauen2]]</tw-passagedata><tw-passagedata pid="1000" name="artuyaHauptstrasse2Optionen" tags="artuya " position="4925,10275" size="100,100">Wohin möchtest Du gehen?
 
 [[Du gehst einfach weiter die Hauptstraße entlang, zum Zentrum der Stadt-&gt;hauptstrasseZentrum]]  
 
@@ -13621,14 +13620,14 @@ Dabei schaut er Dich noch abfällig an. So ein Pech! Leider sind alle Früchte b
 			&lt;&lt;link &quot;Du kaufst einen Apfel für ein Gold!&quot; artuyaFruechte&gt;&gt;
 				&lt;&lt;run setup.inventory.add(&quot;Apfel&quot;,{&quot;wert&quot;:1, &quot;isFrucht&quot;:true, &quot;regeneration&quot;:2, &quot;bild&quot;:&quot;Apfel&quot;, &quot;desc&quot;: &quot;Jup, sieht aus wie ein Apfel. Rund, knackig, ein bisschen rot. Vermutlich essbar!&quot;})&gt;&gt; 
 &lt;img src=&quot;img/Apfel.jpg&quot; width=&quot;30%&quot;&gt;
+&lt;&lt;set $gold-=1&gt;&gt;
                 &lt;&lt;set $apfelzaehler++&gt;&gt;
 			&lt;&lt;/link&gt;&gt;
             &lt;br&gt;
             &lt;&lt;link &quot;Du kaufst eine Dschungelfrucht für ein Gold!&quot; artuyaFruechte&gt;&gt;
 				&lt;&lt;run setup.inventory.add(&quot;eine rote Dschungelfrucht&quot;,{&quot;wert&quot;:2, &quot;regeneration&quot;:2, &quot;isFrucht&quot;:true, &quot;bild&quot;:&quot;Frucht&quot;, &quot;desc&quot;: &quot;Diese Frucht sieht ganz lecker aus! Dir läuft leicht das Wasser im Mund zusammen.&quot;})&gt;&gt; 
 &lt;img src=&quot;img/Frucht.jpg&quot; width=&quot;30%&quot;&gt;
-                &lt;&lt;set $apfelzaehler++&gt;&gt;
-                
+                &lt;&lt;set $apfelzaehler++&gt;&gt;&lt;&lt;set $gold-=1&gt;&gt;
 			&lt;&lt;/link&gt;&gt;
 &lt;br&gt;[[Du schaust Dich weiter um -&gt;artuyaFruechteWeiter]]
 &lt;&lt;/nobr&gt;&gt;
@@ -14046,7 +14045,6 @@ Sie hat noch nicht geblinzelt, und noch immer fixieren Dich ihre grünen Augen.
 [[Lieber nicht -&gt;wahrsagerinNein]]
 </tw-passagedata><tw-passagedata pid="1051" name="kraeuterhexe" tags="artuya Tot item" position="6000,11700" size="100,100">/*&lt;&lt;set $kraeuterHexe = true&gt;&gt;
 &lt;&lt;run setup.inventory.add(&quot;Rocfeder&quot;)&gt;&gt;*/
-
 &lt;&lt;if ($kraeuterHexeZorn)&gt;&gt; Du betrittst den Laden, doch kaum sieht Dich seine Besitzerin, verzieht sich ihr Gesicht vor Zorn. 
 
 &quot;Ich habe Euch gewarnt!&quot; 
@@ -18305,22 +18303,11 @@ Du gehst lieber.
 [[Du entscheidest Dich, ein fester Teil des Kreises zu werden, und Deiner Göttin zu entsagen -&gt;kreisGlaubenJa]]
 &lt;&lt;/if&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="1343" name="wacheGegenstand" tags="artuya " position="4975,12375" size="100,100">*/&lt;&lt;run setup.inventory.add(&#39;Riesenperle&#39;)&gt;&gt;
-&lt;&lt;run setup.inventory.add(&#39;Geschrumpfter Säbelzahnaffe&#39;)&gt;&gt; 
-&lt;&lt;run setup.inventory.add(&#39;Stinkefrüchte&#39;)&gt;&gt; 
-&lt;&lt;run setup.inventory.add(&#39;eine Münze mit Kreissymbol&#39;)&gt;&gt; 
-&lt;&lt;run setup.inventory.add(&#39;Riesenperle&#39;)&gt;&gt;
-&lt;&lt;run setup.inventory.add(&#39;Stinkefrüchte&#39;, {&quot;isFrucht&quot;:true})&gt;&gt;
-&lt;&lt;run setup.inventory.add(&#39;Bananen&#39;, {&quot;isFrucht&quot;:true})&gt;&gt;
-&lt;&lt;run setup.inventory.add(&#39;zwei Feuersteine&#39;)&gt;&gt;*/
-
-&lt;&lt;nobr&gt;&gt;
+</tw-passagedata><tw-passagedata pid="1343" name="wacheGegenstand" tags="artuya " position="4975,12375" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $items = setup.inventory.getItems()&gt;&gt;
 &lt;&lt;if setup.inventory.length()==0&gt;&gt;
 Du hast keinen Gegenstand dabei! [[Du gehst lieber... -&gt;artuyaMarktplatz]] 
-&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;for _i to 0; _i&lt;$items.length; _i++&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;for _i to 0; _i&lt;$items.length; _i++&gt;&gt;
 &lt;br&gt;
 &lt;&lt;if $items[_i].name ==((&#39;eine Münze mit Kreissymbol&#39;)||$items[_i].name ==(&quot;Goldene Münze mit Kreissymbol&quot;))&gt;&gt;
 &lt;br&gt;[[$items[_i].name-&gt;wacheMuenze]]! Hm... es könnte interessant sein, der Wache diesen Gegenstand zu zeigen! 
@@ -18331,7 +18318,6 @@ Du hast keinen Gegenstand dabei! [[Du gehst lieber... -&gt;artuyaMarktplatz]]
 		&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/for&gt;&gt;
-
 &lt;&lt;/nobr&gt;&gt;
 </tw-passagedata><tw-passagedata pid="1344" name="wacheMuenze" tags="artuya " position="4975,12500" size="100,100">Der Wächter betrachtet Deine Münze, und sein Gesicht verzieht sich.. zu einem Lächeln. Bitte, tretet ein. Er tritt beiseite, und lässt Dich Durch die Tür. 
 [[Weiter -&gt;tempelRaumZwei]] </tw-passagedata><tw-passagedata pid="1345" name="weiterTempel" tags="artuya " position="4975,12625" size="100,100">Der Wächter blickt streng auf Dich hinab. 
@@ -18373,9 +18359,7 @@ Deine Göttin wirst Du in Zukunft nicht mehr anrufen können. Am Ende Deines Eid
 Du hast Deine Quest bereits erfolgreich erledigt. Nun kannst Du den Beweis im Tempelbüro abgeben. 
 [[Weiter -&gt;tempelBuero]]
 
-&lt;&lt;else&gt;&gt; 
-
-Dieser Raum ist voller als Du dachtest! 
+&lt;&lt;else&gt;&gt;Dieser Raum ist voller als Du dachtest! 
 
 An einer Wand hängt erneut ein riesiger goldener Kreis an der Wand, an einer anderen hängt ein großes schwarzes Bord, an dem Zettel hängen. Weiter hinten im Raum siehst Du eine goldene Tür, die von zwei Wächtern bewacht wird. 
 
@@ -18389,58 +18373,36 @@ Der Mann deutet zur schwer bewachten Tür,
 Ganz offensichtlich sieht der Priester das als eine sehr große Ehre an. Du schaust Dir das Brett mal genauer an. 
 
 Die meisten Aufträge dort geben nur einen bis fünf Punkte, doch Dir fallen sofort drei Aufträge auf, die jeweils 100 Punkte geben. Du hast die Wahl:  
-
-&lt;&lt;if (!setup.inventory.has(&quot;das Anubiskraut&quot;)&amp;&amp;!$anubisQuest)&gt;&gt;  
-
-&lt;span id =&quot;anubisQuest&quot;&gt;&lt;&lt;link&quot;Beschaffung des legendären Anubis-Heilkrauts, das alle Krankheiten heilt!&quot;&gt;&gt; &lt;&lt;replace #anubisQuest&gt;&gt; 
+&lt;&lt;if (!setup.inventory.has(&quot;das Anubiskraut&quot;)&amp;&amp;!$anubisQuest)&gt;&gt;  &lt;span id =&quot;anubisQuest&quot;&gt;
+&lt;&lt;link&quot;Beschaffung des legendären Anubis-Heilkrauts, das alle Krankheiten heilt!&quot;&gt;&gt; &lt;&lt;replace #anubisQuest&gt;&gt; 
 Du hast Dich für die Anubis-Heilkraut-Quest entschieden. 
 
 Den Zettel am Brett reißt Du ab, und nimmst ihn mit, dann verlässt Du den Tempel. &lt;&lt;set $anubisQuest=true&gt;&gt;
 &lt;&lt;/replace&gt;&gt; 
 &lt;&lt;replace #verschlingerQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;replace #doppelQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
-
-&lt;&lt;/link&gt;&gt;&lt;/span&gt;
-
-&lt;&lt;/if&gt;&gt;
-
- &lt;&lt;if (!setup.inventory.has(&quot;der Zahn des Krokodils&quot;)&amp;&amp;!$verschlingerQuest)&gt;&gt;  
-
-&lt;span id =&quot;verschlingerQuest&quot;&gt;&lt;&lt;link&quot;Austreibung des Monsters - Verschlinger -, einem unbekannten Unwesen, das in der Kanalisation sein Unwesen treibt, und schon 24 Leute getötet hat! Achtung! Nur für erfahrene Jäger!&quot;&gt;&gt;&lt;&lt;replace #verschlingerQuest&gt;&gt; 
+&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;&lt;/if&gt;&gt; &lt;&lt;if (!setup.inventory.has(&quot;der Zahn des Krokodils&quot;)&amp;&amp;!$verschlingerQuest)&gt;&gt;  
+&lt;span id =&quot;verschlingerQuest&quot;&gt;
+&lt;&lt;link&quot;Austreibung des Monsters - Verschlinger -, einem unbekannten Unwesen, das in der Kanalisation sein Unwesen treibt, und schon 24 Leute getötet hat! Achtung! Nur für erfahrene Jäger!&quot;&gt;&gt;&lt;&lt;replace #verschlingerQuest&gt;&gt; 
 Du hast Dich für die Verschlinger-Quest entschieden. Den Zettel am Brett reißt Du ab, und nimmst ihn mit, dann verlässt Du den Tempel. &lt;&lt;set $verschlingerQuest=true&gt;&gt;
-&lt;&lt;/replace&gt;&gt;
-&lt;&lt;replace #anubisQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
-&lt;&lt;replace #doppelQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
-
-&lt;&lt;/if&gt;&gt;
-
- &lt;&lt;if (!setup.inventory.has(&quot;Doppelgängerzahn&quot;)&amp;&amp;!$doppelgaengerQuest)&gt;&gt;
-&lt;span id =&quot;doppelQuest&quot;&gt;&lt;&lt;link&quot;FinDung und Erlegung des Doppelgängers, einem Wesen, das schon länger in der Stadt sein Unwesen treibt, und bereits 21 Leute getötet hat! Achtung! Sehr gefährlich! Monster kann die Gestalt wechseln!&quot;&gt;&gt;&lt;&lt;replace #doppelQuest&gt;&gt; 
-Du hast Dich für die Doppelgänger-Quest entschieden. Den Zettel am Brett reißt Du ab, und nimmst ihn mit, dann verlässt Du den Tempel. &lt;&lt;set $doppelgaengerQuest=true&gt;&gt; &lt;&lt;/replace&gt;&gt;
-&lt;&lt;replace #anubisQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
-&lt;&lt;replace #verschlingerQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
-&lt;&lt;/link&gt;&gt;&lt;/span&gt;
-&lt;&lt;/if&gt;&gt;
-
-[[Du verlässt den Tempel -&gt;artuyaMarktplatz]]
+&lt;&lt;/replace&gt;&gt;&lt;&lt;replace #anubisQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;replace #doppelQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;&lt;/if&gt;&gt; &lt;&lt;if (!setup.inventory.has(&quot;Doppelgängerzahn&quot;)&amp;&amp;!$doppelgaengerQuest)&gt;&gt;
+&lt;span id =&quot;doppelQuest&quot;&gt;
+&lt;&lt;link&quot;Findung und Erlegung des Doppelgängers, einem Wesen, das schon länger in der Stadt sein Unwesen treibt, und bereits 21 Leute getötet hat! Achtung! Sehr gefährlich! Monster kann die Gestalt wechseln!&quot;&gt;&gt;&lt;&lt;replace #doppelQuest&gt;&gt; 
+Du hast Dich für die Doppelgänger-Quest entschieden. Den Zettel am Brett reißt Du ab, und nimmst ihn mit, dann verlässt Du den Tempel. &lt;&lt;set $doppelgaengerQuest=true&gt;&gt; &lt;&lt;/replace&gt;&gt;&lt;&lt;replace #anubisQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace #verschlingerQuest&gt;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;&lt;/if&gt;&gt;[[Du verlässt den Tempel -&gt;artuyaMarktplatz]]
 &lt;&lt;/if&gt;&gt;
 </tw-passagedata><tw-passagedata pid="1349" name="tempelBuero" tags="artuya Achiev item" position="4975,12750" size="100,100">Du stellst Dich in einer Schlange an, bis Du an der Reihe bist, Deinen Questbeweis abzugeben.  
 &lt;&lt;if setup.inventory.has(&quot;das Anubiskraut&quot;)&gt;&gt;  
 Die Blüten das Anubiskraut sehen winzig aus in Deiner Hand, und die Augen der Rezeptionistin werden groß, als sie es sieht. 
 &lt;&lt;run setup.inventory.remove(&quot;das Anubiskraut&quot;)&gt;&gt; 
-&lt;&lt;/if&gt;&gt;
-
- &lt;&lt;if setup.inventory.has(&quot;der Zahn des Krokodils&quot;)&gt;&gt;  
+&lt;&lt;/if&gt;&gt; &lt;&lt;if setup.inventory.has(&quot;der Zahn des Krokodils&quot;)&gt;&gt;  
 Der Zahn des Krokodils wirkt riesig in Deiner Hand, und die Augen der Rezeptionistin werden groß, als sie ihn sieht. 
 &lt;&lt;run setup.inventory.remove(&quot;der Zahn des Krokodils&quot;)&gt;&gt; 
-&lt;&lt;/if&gt;&gt;
-
- &lt;&lt;if setup.inventory.has(&quot;Doppelgängerzahn&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt; &lt;&lt;if setup.inventory.has(&quot;Doppelgängerzahn&quot;)&gt;&gt;
 Der Doppelgängerzahn wirkt riesig in Deiner Hand, und die Augen der Rezeptionistin werden groß, als sie ihn sieht.  
 &lt;&lt;run setup.inventory.remove(&quot;Doppelgängerzahn&quot;)&gt;&gt; 
-&lt;&lt;/if&gt;&gt;
-
-&quot;Ihr habt eine der drei großen Quests erledigt? Das haben schon viele versucht, aber Ihr seid der Erste!&quot; 
+&lt;&lt;/if&gt;&gt;&quot;Ihr habt eine der drei großen Quests erledigt? Das haben schon viele versucht, aber Ihr seid der Erste!&quot; 
 
 Dann geht sie an einen großen Safe hinten im Raum und schließt diesen auf, während sie etwas wispert. 
 Ein Schauder überläuft Dich - Magie? Aus dem Safe holt sie einen kleinen Gegenstand, den sie Dir dann feierlich überreicht. 
@@ -18448,22 +18410,19 @@ Ein Schauder überläuft Dich - Magie? Aus dem Safe holt sie einen kleinen Gegen
 &quot;Normalerweise brauchen die Leute mehrere Jahre, bis sie Zugang zum inneren Kreis bekommen. Ihr seid wirklich speziell.&quot; 
 
 Du musst Deine silberne Münze mit Kreissymbol abgeben, und bekommst Deine Zugangsmarke zum inneren Kreis - eine goldene Münze. 
-&lt;&lt;if setup.inventory.has(&quot;eine Münze mit Kreissymbol&quot;)&gt;&gt;
-&lt;&lt;run setup.inventory.remove(&quot;eine Münze mit Kreissymbol&quot;)&gt;&gt; 
+&lt;&lt;if setup.inventory.has(&quot;eine Münze mit Kreissymbol&quot;)&gt;&gt;&lt;&lt;run setup.inventory.remove(&quot;eine Münze mit Kreissymbol&quot;)&gt;&gt; 
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;run setup.inventory.add(&quot;Goldene Münze mit Kreissymbol&quot;,{&quot;wert&quot;:0, &quot;bild&quot;:&quot;Runde Münze&quot;, &quot;quest&quot;:true, &quot;desc&quot;: &quot;Die Münze gefällt Dir, sie ist schwer, und liegt gut in der Hand. Ein gutes Souvenir, falls Du sie behalten möchtest. Vielleicht sogar aus echtem Gold! Woher das wohl kommt...&quot;})&gt;&gt;
-&lt;img src=&quot;img/Saebli.jpg&quot; width=&quot;30%&quot;&gt;
+&lt;img src=&quot;img/Runde Münze.jpg&quot; width=&quot;30%&quot;&gt;
 &lt;&lt;if setup.inventory.has(&quot;goldene Münze mit Kreissymbol&quot;,3)&gt;&gt;
 Drei goldene Münzen? Du hast den Erfolg &quot;Verrückter Überflieger&quot; freigeschaltet! 
 &lt;&lt;run $achievements.push(&#39;Verrückter Überflieger&#39;)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-
 Du kannst nun  
 
 [[Durch die goldene Tür in den inneren Kreis eintreten -&gt;innererKreis]]
 
-[[Den Tempel wieder verlassen. -&gt;artuyaMarktplatz]] 
- </tw-passagedata><tw-passagedata pid="1350" name="innererKreis" tags="artuya " position="4975,12875" size="100,100">&lt;&lt;if (setup.inventory.has(&quot;Spiegel der Altherer&quot;))&gt;&gt;
+[[Den Tempel wieder verlassen. -&gt;artuyaMarktplatz]] </tw-passagedata><tw-passagedata pid="1350" name="innererKreis" tags="artuya " position="4975,12875" size="100,100">&lt;&lt;if (setup.inventory.has(&quot;Spiegel der Altherer&quot;))&gt;&gt;
 Du solltest nicht mit dem gestohlenen Spiegel im Rucksack da rein gehen... [[Weiter -&gt;tempelBuero]]
 
 &lt;&lt;else&gt;&gt; 
@@ -18792,9 +18751,8 @@ Was antwortest Du?
 </tw-passagedata><tw-passagedata pid="1374" name="kraeuterHexeBeweis" tags="artuya " position="6000,12575" size="100,100">Die Frau sieht noch nicht überzeugt aus, sie denkt immer noch, der Kreis hätte Dich gesandt.  
 
 &lt;&lt;if ($ewigerKreis)&gt;&gt; Du kannst ihr nichts beweisen, denn in der Tat bist Du ein Mitglied des ewigen Kreises. Auf Dein Schweigen hin verengen sich die Augen der Frau. &quot;Geht! Und lasst Euch hier nie wieder blicken!&quot; 
-
 &lt;&lt;set $kraeuterHexeZorn=true&gt;&gt;Die Frau wirkt nicht glücklich.. [[Du verlässt den Laden. -&gt;kraeuterHexeAusgang]]
-&lt;&lt;elseif $markiert&gt;&gt;Du zeigst die kreisförmige Brandnarbe, und der Gesichtsausdruck der Frau wird wieder sanfter.  
+&lt;&lt;elseif $markiert&gt;&gt;Du zeigst die kreisförmige Brandnarbe, und der Gesichtsausdruck der Frau wird wieder sanfter. 
 &lt;&lt;else&gt;&gt; &quot;Wie kann ich Euch das beweisen?&quot; fragst Du. 
 &quot;Einfach!&quot; ruft die Frau, &quot;Bittet um ein Zeichen Eurer Gottheit!&quot; 
 
@@ -18802,7 +18760,8 @@ Ob das so einfach geht? Aber Du hast nun keine andere Wahl. Du bittest um ein Ze
 
 Und tatsächlich! Eine Blume in Deiner Nähe öffnet auf einmal ihre Blüten. Deinen Wunsch hast Du noch, und auch die Frau scheint überzeugt zu sein. Ihr Gesichtsausdruck wird wieder sanfter. 
 
-[[Weiter -&gt;kHexeBeweis2]]</tw-passagedata><tw-passagedata pid="1375" name="hibiskusNein" tags="artuya " position="6250,12200" size="100,100">Lieber hälst Du Dich von dieser Pflanze fern. else . Dir wird klar, dass es sich bei diesem Laden um einen magischen Garten handeln muss. 
+[[Weiter -&gt;kHexeBeweis2]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="1375" name="hibiskusNein" tags="artuya " position="6250,12200" size="100,100">Lieber hälst Du Dich von dieser Pflanze fern. else . Dir wird klar, dass es sich bei diesem Laden um einen magischen Garten handeln muss. 
 
 Und das bedeutet... &quot;Ihr seid eine Hexe!&quot; überrascht schaust Du die Frau an. 
 
